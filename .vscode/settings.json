@@ -1,0 +1,7 @@
+{
+    "gitlens.codeLens.enabled": true,
+    "gitlens.terminal.overrideGitEditor": true,
+    "git.confirmNoVerifyCommit": false,
+    "git.enabled": true,
+    "git.fetchOnPull": false
+}
