@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Titel } from "../App";
+import { Link } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
+import About from "./About";
 
 const Header = () => {
   // const [titel, setTitel] = useState("Food Vill");
@@ -12,10 +15,18 @@ const Header = () => {
       {/* <button onClick={() => setTitel("New Food Villa")} className='header-btn'>Change Titel</button> */}
       <div className="nav-items">
         <ul>
-          <li>House</li>
-          <li>About</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
+          <li >
+            <Link className="link-text"   to="/" >Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contactUs">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
         </ul>
       </div>
       {isLoggedIn ? (
@@ -30,5 +41,6 @@ const Header = () => {
     </div>
   );
 };
+
 
 export default Header;
