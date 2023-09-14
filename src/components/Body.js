@@ -3,13 +3,8 @@ import RestauranteCard from "./RestauranteCard";
 import Shimmer from "./Shimmer";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-  return filterData;
-}
+import {filterData} from '../utils/helper';
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -23,6 +18,8 @@ useEffect(() => {
   getRestaurants();
 
 },[]);
+
+
 
 async function getRestaurants() {
   const data = await fetch(
@@ -42,6 +39,15 @@ async function getRestaurants() {
 // if restaurant has data => actual data UI
 
 // Not render Component (Early return)
+
+const isOnline = useOnline();
+
+if(!isOnline){
+
+   return<h1>offline, Please Check your Internate Connection</h1>;
+}
+
+
 
 if(!allRestaurants) return null;
 
@@ -81,10 +87,11 @@ console.log("render");
             <Link className="link-text"  to={"/restaurant/" + restaurant.info.id}>
             {/* <RestauranteCard {...restaurant.info} key={restaurant.info.id} /> */}
             <RestauranteCard {...restaurant.info}  />
+            
             </Link>
           );
         })}
-      </div>
+      </div> 
     </div>
   );
 };

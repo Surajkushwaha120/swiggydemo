@@ -1,15 +1,22 @@
 import React from 'react'
-import Header from './Header'
-
-
-const About = () => {
-
-    return(
-        <div>
-            <Header />
-            <h1>About Us Page</h1>
-            <p>THis ia Smart Office page</p>
-        </div>
-    )
+import { Component } from 'react'
+import Profile from './Profile'
+import Header from "./Header"
+class About extends Component{
+    render (){
+        return (
+            <div>
+                <Header />
+                <h1>About us Page</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates optio, delectus quaerat expedita ab eligendi?
+                </p>
+                <Profile  xyz="abc" />
+              
+              
+            </div>
+        )
+    }
 }
- export default About 
+
+export default About;
